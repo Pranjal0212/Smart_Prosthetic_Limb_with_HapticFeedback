@@ -1,0 +1,65 @@
+// C++ code
+//
+#include <Servo.h>
+
+int Flex1 = 0;
+
+int Flex2 = 0;
+
+int Flex3 = 0;
+
+int Flex4 = 0;
+
+Servo servo_2;
+
+Servo servo_3;
+
+Servo servo_4;
+
+Servo servo_5;
+
+void setup()
+{
+  pinMode(A0, INPUT);
+  pinMode(A1, INPUT);
+  pinMode(A2, INPUT);
+  pinMode(A3, INPUT);
+  Serial.begin(9600);
+  servo_2.attach(2, 500, 2500);
+  servo_3.attach(3, 500, 2500);
+  servo_4.attach(4, 500, 2500);
+  servo_5.attach(5, 500, 2500);
+}
+
+void loop()
+{
+  Flex1 = analogRead(A0);
+  Flex2 = analogRead(A1);
+  Flex3 = analogRead(A2);
+  Flex4 = analogRead(A3);
+  Serial.println(Flex1);
+  Serial.println(Flex2);
+  Serial.println(Flex3);
+  Serial.println(Flex4);
+  if (Flex1 < 110) {
+    servo_2.write(90);
+  } else {
+    servo_2.write(0);
+  }
+  if (Flex2 < 110) {
+    servo_3.write(90);
+  } else {
+    servo_3.write(0);
+  }
+  if (Flex3 < 110) {
+    servo_4.write(90);
+  } else {
+    servo_4.write(0);
+  }
+  if (Flex4 < 110) {
+    servo_5.write(90);
+  } else {
+    servo_5.write(0);
+  }
+  delay(10); // Delay a little bit to improve simulation performance
+}
