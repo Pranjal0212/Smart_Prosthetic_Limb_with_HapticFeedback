@@ -1,5 +1,4 @@
 // C++ code
-//
 #include <Servo.h>
 
 int Flex1 = 0;
